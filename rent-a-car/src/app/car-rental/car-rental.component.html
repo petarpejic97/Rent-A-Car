@@ -1,0 +1,99 @@
+<div
+class="background-wrapper"
+fxLayout=column>
+    <img 
+    [src]="rentalImage"
+    alt="">
+    <div
+    fxLayout=column
+    fxLayoutGap=1rem
+    class="rental-car-info-wrapper">
+        <div
+        class="text-info-wrapper"
+        fxLayout=column
+        fxLayoutGap=1rem>
+            <div
+            fxLayout=row
+            fxLayoutAlign="center ">
+                <h1>{{carRental.name}}</h1>
+            </div>
+            <div
+            fxLayout=row
+            fxLayoutGap=1rem>
+                <span class="material-icons">
+                    person
+                </span>
+                <div
+                fxLayout=column>
+                    <span>Vlasnik</span>
+                    <span>{{carRental.owner.firstName}} {{carRental.owner.lastName}}</span>
+                </div>
+            </div>
+            <div
+            fxLayout=row
+            fxLayoutGap=1rem>
+                <span class="material-icons">
+                map
+                </span>
+                <div
+                fxLayout=column>
+                    <span>City</span>
+                    <span>{{carRental.city}}</span>
+                </div>
+            </div>
+            <div
+            fxLayout=row
+            fxLayoutGap=1rem>
+                <span class="material-icons">
+                    place
+                </span>
+                <div
+                fxLayout=column>
+                    <span>Address</span>
+                    <span>{{carRental.address}}</span>
+                </div>
+            </div>
+        </div>
+        <div
+        fxLayout=row
+        fxLayoutAlign="center "
+        fxLayoutGap=2rem
+        class="bg-primary contact-wrapper">
+            <div
+            fxLayout=column
+            fxLayoutAlign="center center">
+                <span class="material-icons">
+                    call
+                </span>
+                <span>
+                    {{carRental.contactNumber}}
+                </span> 
+            </div>
+            <div
+            fxLayout=column
+            fxLayoutAlign="center center">
+                <span class="material-icons">
+                    email
+                </span>
+                <span>
+                    {{carRental.email}}
+                </span> 
+            </div>
+        </div>
+    </div>
+    <h1
+    class="nasi-auti">
+        Our cars
+    </h1>
+    <div
+    class="list-wrapper"
+    fxLayoutAlign="centar start">
+        <div 
+        class="vehicles-container" >
+            <app-vehicle-item 
+            *ngFor="let vehicle of vehicles" 
+            [vehicle]="vehicle"></app-vehicle-item>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

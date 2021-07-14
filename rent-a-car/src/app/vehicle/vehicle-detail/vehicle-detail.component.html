@@ -1,0 +1,119 @@
+<div fxLayout="column" fxLayoutAlign="start center" class="vehicle-detail-background">
+  <div fxLayout="column" fxLayoutAlign=" center" class="vehicle-detail-container" >
+    <div class="vehicle-image">
+      <div class="slide-container" (scroll)="handleScroll($event)">
+        <button mat-button class="images-button" *ngFor="let image of vehicle.images">
+          <img class="images-button" [src]="image.base64">
+        </button>
+      </div>
+      <div class="actions-container">
+        <button mat-flat-button class="icon back" routerLink="../">
+          <mat-icon>keyboard_backspace</mat-icon>
+        </button>
+        <button mat-flat-button class="icon share" [cdkCopyToClipboard]="fetchCurrentLink()">
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
+      <div class="counter-container">
+        <span class="text-weight-500 color-white">{{ currentImage }}</span>
+        <span class="text-weight-500 color-white">/</span>
+        <span class="text-weight-500 color-white">{{ imagesCount }}</span>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly start" class="vehicle-info-container">
+      <div fxLayout="column">
+        <mat-icon>directions_car</mat-icon>
+        <span class="text-size-18 font-weight-300">Marka: {{ vehicle.mark }}</span>
+        <span class="text-size-18 font-weight-300">Model: {{ vehicle.model }}</span>
+        <span class="text-size-18 font-weight-300">Model year: {{ getYear(vehicle.modelYear) }}</span>
+        <span class="text-size-18 font-weight-300">Manufacture year: {{ getYear(vehicle.manufactureYear) }}</span>
+      </div>
+      <div fxLayout="column">
+        <img src="https://cdn0.iconfinder.com/data/icons/thin-transportation-1/24/thin-0505_car_manual_gearbox-512.png"
+          alt="" class="img-block" />
+        <span class="text-size-18 font-weight-300">Gearbox: {{ vehicle.gearbox }}</span>
+        <span class="text-size-18 font-weight-300">Gears: {{ vehicle.gears }}</span>
+        <span class="text-size-18 font-weight-300">Power: {{ vehicle.power }} kW</span>
+        <span class="text-size-18 font-weight-300">Fuel type: {{ vehicle.fuelType }} </span>
+      </div>
+      <div fxLayout="column">
+        <mat-icon>info</mat-icon>
+        <span class="text-size-18 font-weight-300">Status: {{ vehicle.status }}</span>
+        <span class="text-size-18 font-weight-300">Color:
+          <div class="color-block" [style.backgroundColor]="vehicle.color"></div>
+        </span>
+        <span class="text-size-18 font-weight-300">Type: {{ vehicle.type }}</span>
+        <span class="text-size-18 font-weight-300">Price: {{ vehicle.price }} €/day</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly" class="vehicle-actions-container" *ngIf="spinnerIsClosed">
+    <button mat-flat-button class="edit" (click)="navigateToEditScreen()" *ngIf="loggedUser&&(loggedUser.id === vehicle.carRental.owner.id)">
+      <span>Update</span>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-flat-button class="remove" *ngIf="loggedUser&&(loggedUser.id === vehicle.carRental.owner.id)" (click)="deleteCurrentVehicle()">
+      <span>Remove</span>
+      <mat-icon>remove_circle_outline</mat-icon>
+    </button>
+    <button mat-flat-button class="reserve" (click)="handleReservation()" *ngIf="loggedUser">
+      <span>Reserve</span>
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" class="reservation-failed-container" *ngIf="warningWindowIsOpened">
+    <div fxLayout="column" fxLayoutAlign=" center" class="reservation-info-container">
+      <div fxLayout="row" fxLayoutAlign="end" class="close-container">
+        <button mat-flat-button class="close-button" (click)="closeWarning()">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly center" class="warning-header">
+        <mat-icon class="warning-icon">warning</mat-icon>
+        <span class="text-size-16 warning-text">You didn't enter pickup and return date. Please,
+          pick dates!</span>
+      </div>
+      <div fxLayout="row" class="enter-data-container">
+        <div class="form-wrapper" fxLayout="column" fxLayoutAlign="center space-between">
+          <form fxLayout="row" [formGroup]="filterForm">
+            <mat-form-field class="example-full-width">
+              <input type="text" placeholder="Location" aria-label="Number" matInput formControlName="location"
+                [matAutocomplete]="auto" />
+              <mat-error *ngIf="filterForm.controls.location.invalid">* Field is required!</mat-error>
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{ option }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field fxFlexOffset="1rem" (click)="picker.open()">
+              <mat-label>Pickup date:</mat-label>
+              <input matInput [min]="minDate" [matDatepicker]="picker" formControlName="start_date"
+                (dateChange)="fetchStartDate($event.value)" />
+              <mat-error *ngIf="filterForm.controls.start_date.invalid">* Field is required!</mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlexOffset="1rem" (click)="picker1.open()">
+              <mat-label>Return date:</mat-label>
+              <input matInput [min]="minDate2" [matDatepicker]="picker1" formControlName="end_date" />
+              <mat-error *ngIf="filterForm.controls.end_date.invalid">* Field is required!</mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </form>
+          <button mat-flat-button class="continue-reservation-button" [disabled]="!formIsValid"
+            (click)="navigateTonConfirmScreen()">Continue with reservation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+
+  Prikaz podataka o vozilu:
+    vidi komponentu vehicle-edit
+
+ -->

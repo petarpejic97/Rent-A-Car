@@ -1,0 +1,128 @@
+.summary-background{
+    width: 60rem;
+    margin: auto;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+}
+.car-infoAndImg-wrapper {
+    padding: 1rem;
+}
+.car-infoAndImg-wrapper > img {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.car-info-wrapper{
+    width: 100%;
+    padding: 1rem;
+}
+.right-side-car-info{
+    padding: 0.5rem;
+}
+.right-side-car-info > img {
+    margin: auto;
+    width: 4rem;
+}
+.right-side-car-info > h2 {
+    text-align: center;
+}
+.car-advantage-wrapper{
+    width: 100%;
+    height: 8rem;
+    padding: 1rem;
+    background-color: rgb(212, 212, 212);
+}
+.advantage-item{
+    border: 2px solid black;
+    width: 8rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+.advantage-item > h2{
+    margin-bottom: unset;
+}
+.advantage-item.power > img{
+    width: 40%;
+    height: 60%;
+    object-fit: cover;
+}
+.advantage-item.color > div{
+    width: 50%;
+    height: 60%;
+    object-fit: cover;
+}
+.advantage-item.gear > img {
+    height: 60%;
+    width: 50%;
+    object-fit: contain;
+}
+.reservation-detail-wrapper{
+    padding: 1rem;
+    padding-bottom: unset!important;
+}
+
+.start-date-wrapper,
+.end-date-wrapper,
+.for-wrapper,
+.taxes-wrapper,
+.final-price-wrapper,
+.car-wrapper{    
+    justify-content: space-between;
+
+}
+.final-price,
+.sum-price{
+    font-weight: bold;
+}
+.start-date-wrapper,
+.end-date-wrapper,
+.for-wrapper{
+    line-height: 3em;  
+    background: linear-gradient(to right, rgb(255, 255, 255) 90%, rgb(177, 191, 231) 90%);
+    background-size: 200% 100%;
+    background-position:left;
+    transition:all 1s ease;
+    background-repeat: no-repeat;
+}
+.start-date-wrapper:hover,
+.end-date-wrapper:hover,
+.for-wrapper:hover{
+     background-position: right;
+     background-size: 100% 100%;
+}
+
+hr{
+    background-color: rgb(219, 219, 219); 
+    width: 100%; 
+    border: 0; 
+    height: 1px;
+    margin: 0;
+}
+.price-wrapper{
+    padding: 1rem 0;
+}
+.estimate-arrival-time-container,
+.payment-method-container{
+    padding: 1rem 1rem 0 1rem;
+}
+.user-info-wrapper{
+    padding: 1rem;
+}
+.user-info-wrapper > img{
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.button-reserve-wrapper{
+    padding: 1rem;
+}
+.btn-reserve-now-wrapper{
+    padding: 0 1rem 1rem 1rem;
+}
+.btn-reserve-now{
+    color: white;
+    padding: 0.2rem 1.5rem;
+}

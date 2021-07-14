@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div
+class="backdrop">
+  <div class="screen-center">
+    <app-error-alert></app-error-alert>
+  </div>
+</div>
+<div class="background" fxLayout="column">
+  <app-loading-spinner
+  class="spinner"
+    *ngIf="spinner"></app-loading-spinner>
+  <router-outlet></router-outlet>
+</div>
+
+
+

@@ -1,0 +1,21 @@
+.error{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-75%);
+    width: 20rem;
+    text-align: center; 
+    padding:30px; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 2px solid rgb(114, 148, 174)!important;
+    z-index: 5;
+  }
+.error > button {
+    width: 100%;
+    color: rgb(238, 83, 83);
+    background: transparent;
+    border : 1px grey solid;
+    border-radius: .5rem;
+    padding: 1rem;
+}

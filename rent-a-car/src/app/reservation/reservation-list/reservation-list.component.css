@@ -1,0 +1,41 @@
+.reservation-list-container{
+  width: 62rem;
+  height: 80vh;
+  margin-top: 5vh;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.resevation-list{
+  margin-top:0.3rem;
+}
+
+.mat-icon{
+  margin-left: 1rem;
+  height: 2rem;
+  width: 2rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: white;
+}
+
+.icon-waiting{
+  background-color: orange;
+}
+.icon-accepted{
+  background-color: green;
+}
+.icon-rejected{
+  background-color: red;
+}
+
+::ng-deep .mat-ink-bar{
+  background-color: #7294ae !important;
+}
+mat-tab-group > ::ng-deep .mat-tab-header{
+  height:3rem;
+}
+mat-tab-group > ::ng-deep .mat-tab-body-wrapper{
+  overflow-y:scroll;
+  height: calc(80vh - 5rem);
+}

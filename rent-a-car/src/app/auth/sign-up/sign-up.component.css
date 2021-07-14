@@ -1,0 +1,61 @@
+.sign-up-form-wrapper{
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 2rem);
+    transform: translate(-50%,-50%);
+    background-color: white;
+}
+.register-wrapper{
+    position: absolute;
+    width: calc(100% + 3rem);
+    padding: 0.5rem 0;
+    transform: translateX(-1.5rem);
+    margin-top: 1rem;
+    background: linear-gradient(120deg, rgb(114, 148, 174) 25%, rgb(93, 140, 175) 25%);
+}
+.registartion-form{
+    padding: 2rem;
+    margin-bottom: unset!important;
+}
+.register-wrapper > p{
+    margin-bottom: unset;
+    color: white;
+}
+.register-title{
+    color: white;
+}
+.register-title{
+    margin: 0;
+}
+.btn-signup,
+.footer-text-wrapper > span{
+    color: white;
+}
+.footer-text-wrapper{
+    background: linear-gradient(120deg, rgb(114, 148, 174) 25%, rgb(93, 140, 175) 25%);
+}
+.btn-signup{
+    border-radius: unset;
+    width: fit-content;
+    padding: 0 2rem;
+}
+.material-icons{
+    color: grey;
+}
+.first-last-name-wrapper > .mat-form-field{
+    width: 50%;
+}
+.click-here{
+    cursor: pointer;
+    border-bottom: rgb(255, 211, 130) 1px solid;
+}
+.alert{
+    margin-bottom: 0!important;
+    padding: 0!important;
+    color: red;
+}
+.btn-ok{
+    margin-left: 1rem;
+    border: 1px solid red;
+    color: red;
+}

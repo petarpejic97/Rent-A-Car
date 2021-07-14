@@ -1,0 +1,79 @@
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="!reservation">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div fxLayout="column" class="reservation-detail-container" *ngIf="reservation">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div fxLayout="row" class="badge back-icon">
+      <mat-icon (click)="goBack()">keyboard_backspace</mat-icon>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between" class="reservation-user-container">
+    <div fxLayout="row" fxFlex="45">
+      <div fxLayout="row" class="badge">
+        <mat-icon>person</mat-icon>
+      </div>
+      <div fxLayout="column" class="bg-white reservation-section rounded-borders" fxLayoutAlign="center center" fxFlex="100">
+        <span class="text-size-16 break-word">Name: {{reservation.user.firstName}}</span>
+        <span class="text-size-16 break-word">Surname: {{reservation.user.lastName}}</span>
+        <span class="text-size-16 break-word">Email: {{reservation.user.email}}</span>
+        <span class="text-size-16 break-word">Payment method: {{reservation.paymentMethod}}</span>
+        <span class="text-size-16 break-word" *ngIf="reservation.paymentMethod === 'cash'">Ammount: {{reservation.paymentAmount}} €</span>
+      </div>
+    </div>
+    <div fxLayout="row" fxFlex="45">
+      <div fxLayout="row" class="badge">
+        <mat-icon>assignment</mat-icon>
+      </div>
+      <div fxLayout="column" class="bg-white reservation-section rounded-borders" fxLayoutAlign="center center" fxFlex="100">
+        <span class="text-size-16 break-word">Car-rental name: {{reservation.vehicle.carRental.name}}</span>
+        <span class="text-size-16 break-word">Collection date: {{getDate(reservation.startTime)}}</span>
+        <span class="text-size-16 break-word">Return date: {{getDate(reservation.endTime)}}</span>
+        <span class="text-size-16 break-word">Reservations status: {{reservation.status}}</span>
+        <span class="text-size-16 break-word" *ngIf="reservation.status !== 'Waiting'">Notice: {{ reservation.info}}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start" class="vehicle-container">
+      <div fxLayout="row" class="badge">
+        <mat-icon>directions_car</mat-icon>
+      </div>
+      <div fxLayout="row" class="bg-white rounded-borders" fxFlex="99" fxLayoutAlign="space-evenly center">
+        <img class="vehicle-image" [src]="vehicle.images[0].base64" routerLink="/vehicle/{{vehicle.id}}">
+        <div fxLayout="column">
+          <span class="text-size-16 break-word">Mark: {{reservation.vehicle.mark}}</span>
+          <span class="text-size-16 break-word">Model: {{reservation.vehicle.model}}</span>
+          <span class="text-size-16 break-word">Manufacture year: {{getYear(reservation.vehicle.manufactureYear)}}</span>
+          <span class="text-size-16 break-word">Gearbox: {{reservation.vehicle.gearbox}}</span>
+        </div>
+        <div fxLayout="column">
+          <span class="text-size-16 break-word">Gears: {{reservation.vehicle.gears}}</span>
+          <span class="text-size-16 break-word">Power: {{reservation.vehicle.power}} kW</span>
+          <span class="text-size-16 break-word">Color: {{reservation.vehicle.color}}</span>
+          <span class="text-size-16 break-word">Price: <span class="text-through" *ngIf="reservation.vehicle.discount>0">({{reservation.vehicle.price}})</span> {{getNewPrice()}}€ </span>
+        </div>
+      </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start" class="actions-container" *ngIf="!(loggedUser.id === reservation.user.id && reservation.status !== 'Waiting')">
+    <div fxLayout="row" class="badge">
+      <mat-icon>security</mat-icon>
+    </div>
+    <div fxLayout="row" class="bg-white rounded-borders" fxFlex="100" fxLayoutAlign="center center" fxLayoutGap="8rem">
+      <div fxLayout="column" fxLayoutGap="0.5rem" *ngIf="loggedUser.id === reservation.user.id && reservation.status === 'Waiting'">
+        <span class="text-size-16 break-word">User options:</span>
+        <button mat-raised-button class="button-decline" (click)="cancelReservation()">Cancel</button>
+      </div>
+      <div fxLayout="column" fxLayoutGap="0.5rem" *ngIf="loggedUser.id === reservation.vehicle.carRental.owner.id">
+        <span class="text-size-16 break-word">Worker options:</span>
+        <button mat-raised-button class="button-approve" (click)="updateReservation('Accepted')">Accept</button>
+        <button mat-raised-button class="button-decline" (click)="updateReservation('Rejected')">Reject</button>
+      </div>
+      <div fxLayout="column" class="color-white" fxLayoutGap="0.5rem" *ngIf="loggedUser.id === reservation.vehicle.carRental.owner.id">
+        <span class="text-size-16 break-word">Short message:</span>
+        <mat-form-field class="example-full-width" hei>
+          <mat-label>Leave message...</mat-label>
+          <textarea matInput placeholder="..." [(ngModel)]="shortMessage"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+</div>
+</div>

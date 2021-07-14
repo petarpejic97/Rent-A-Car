@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.primary{
+    color: rgb(114, 148, 174)!important;
+}
+.secondary{
+    color: rgb(255, 211, 130)!important;
+}
+.bg-primary{
+    background-color: rgb(114, 148, 174)!important;
+}
+.bg-secondary{
+    background-color: rgb(255, 211, 130)!important;
+}
+
+.text-size-14{
+  font-size: 0.875rem;
+}
+.text-size-16{
+  font-size: 1rem;
+}
+.text-size-18{
+  font-size: 1.125rem;
+}
+.break-word{
+  word-break: break-word;
+}

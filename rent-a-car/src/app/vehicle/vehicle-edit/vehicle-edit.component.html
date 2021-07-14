@@ -1,0 +1,174 @@
+<div fxLayout="row" fxLayoutAlign="center" class="vehicle-edit-background">
+  <div fxLayout="column" fxLayoutAlign="start center" class="vehicle-edit-container" fxLayoutGap="1rem">
+    <div fxLayout="row" fxLayoutAlign="center" class="header-container">
+      <button mat-flat-button class="message-title">
+        <mat-icon>directions_car</mat-icon>
+        <h2>
+          Please, {{ screenType === "add" ? "enter" : "edit" }} vehicle details:
+        </h2>
+      </button>
+    </div>
+    <form fxLayout="column" fxLayoutGap="1rem" [formGroup]="vehicleForm" (submit)="addVehicle()">
+      <div fxLayout="row" fxLayoutGap="2rem" fxLayoutAlign="center" class="vehicle-info-container">
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Mark:</mat-label>
+            <mat-select formControlName="mark">
+              <mat-option *ngFor="let mark of marks" [value]="mark.value">
+                {{ mark.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.mark.invalid">{{getErrorMessage(vehicleForm.controls.mark,'')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Model:</mat-label>
+            <input matInput formControlName="model" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.model.invalid">{{getErrorMessage(vehicleForm.controls.model,'')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Model year:</mat-label>
+            <input type="number" matInput formControlName="modelYear" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.modelYear.invalid">{{getErrorMessage(vehicleForm.controls.modelYear,'year')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Manufacture year:</mat-label>
+            <input type="number" matInput formControlName="manufactureYear" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.manufactureYear.invalid">{{getErrorMessage(vehicleForm.controls.manufactureYear,'year')}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Gears:</mat-label>
+            <input type="number" matInput formControlName="gears" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.gears.invalid">{{getErrorMessage(vehicleForm.controls.gears,'gears')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Color:</mat-label>
+            <mat-select formControlName="color">
+              <mat-option *ngFor="let color of colors" [value]="color.value">
+                {{ color.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.color.invalid">{{getErrorMessage(vehicleForm.controls.color,'')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Gearbox:</mat-label>
+            <mat-select formControlName="gearbox">
+              <mat-option *ngFor="let gearbox of gearboxs" [value]="gearbox.value">
+                {{ gearbox.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.gearbox.invalid">{{getErrorMessage(vehicleForm.controls.gearbox,'')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Status:</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let item of status" [value]="item.value">
+                {{ item.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.status.invalid">{{getErrorMessage(vehicleForm.controls.status,'')}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Power(kW):</mat-label>
+            <input type="number" matInput formControlName="power" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.power.invalid">{{getErrorMessage(vehicleForm.controls.power,'power')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Type:</mat-label>
+            <mat-select formControlName="type">
+              <mat-option *ngFor="let type of types" [value]="type.value">
+                {{ type.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.type.invalid">{{getErrorMessage(vehicleForm.controls.type,'')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Price:</mat-label>
+            <input type="number" matInput formControlName="price" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.price.invalid">{{getErrorMessage(vehicleForm.controls.price,'price')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Fuel type:</mat-label>
+            <mat-select formControlName="fuelType">
+              <mat-option *ngFor="let fuel of fuelTypes" [value]="fuel.value">
+                {{ fuel.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="vehicleForm.controls.fuelType.invalid">{{getErrorMessage(vehicleForm.controls.fuelType,'')}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="column">
+          <mat-form-field>
+            <mat-label>Gate number:</mat-label>
+            <input type="number" matInput formControlName="gateNumber" autocomplete="off" />
+            <mat-error *ngIf="vehicleForm.controls.gateNumber.invalid">{{getErrorMessage(vehicleForm.controls.gateNumber,'gates')}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Discount:</mat-label>
+            <input type="number" matInput formControlName="discount" autocomplete="off"/>
+            <mat-error *ngIf="vehicleForm.controls.discount.invalid">{{getErrorMessage(vehicleForm.controls.discount,'discount')}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="column" class="images-container" fxLayoutAlign="center center" fxLayoutGap="1rem">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem" class="uploaded-images">
+          <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center"
+            *ngIf="!imagesAreUploaded && screenType === 'edit' && uploadedImages.length > 0">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+          <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center" *ngIf="uploadedImages.length === 0">
+            <span>Images will appear when you chose it.</span>
+            <button class="action-button upload-image" type="button" mat-flat-button (click)="imagesUploader.click()">
+              <mat-icon>cloud_upload</mat-icon>
+              Choose pictures
+            </button>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1rem" [hidden]="!imagesAreUploaded && screenType === 'edit'">
+            <img *ngFor="let imagePath of uploadedImages; let i = index" src="{{ imagePath.base64 }}" class="uploaded-image"
+            (click)="pickCoverImage(i)"/>
+          </div>
+        </div>
+        <div fxLayout="row" class="actions" fxLayoutAlign="space-between center">
+          <button class="action-button remove-images" type="button" mat-flat-button (click)="removeImages()">
+            Remove images
+          </button>
+          <span *ngIf="uploadedImages.length > 0">Chose cover image by clicking on it.</span>
+          <span *ngIf="imagesAreUploaded">{{getImagesStatus()}}</span>
+          <input required #imagesUploader hidden type="file" multiple (change)="handleImageSelect($event)" />
+          <div fxLayout="column" fxLayoutAlign="center center" *ngIf="!vehicleIsAdded">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+          <button class="action-button add-vehicle" type="submit" mat-flat-button *ngIf="screenType === 'add'"
+            [disabled]="!formIsValid || !this.coverIsPicked || !this.imagesAreValid">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button class="action-button add-vehicle" type="submit" mat-flat-button *ngIf="screenType === 'edit'"
+            [disabled]="!formIsValid || !this.coverIsPicked || !this.imagesAreValid">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--
+
+  Forma s podacima o:
+    Marki vozila,
+    modelu,
+    godini modela,
+    godini proizvodnje,
+    broju brzina,
+    boji,
+    vrsti mjenjaca,
+    snagi u kW,
+    cijeni,
+    tipu,
+    naslovna slika,     [jpeg,jpg,png]
+    ostale slike...     [jpeg,jpg,png]
+
+ -->

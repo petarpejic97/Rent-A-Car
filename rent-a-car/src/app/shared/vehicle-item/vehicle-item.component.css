@@ -1,0 +1,66 @@
+.vehicle-container{
+  width: 18rem;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+.vehicle-container > ::ng-deep .mat-button-wrapper{
+  height: 100%!important;
+}
+.vehicle-container > ::ng-deep .mat-button-wrapper > div{
+  height: 100%;
+}
+.vehicle-image-wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.mat-raised-button{
+    min-width: 100%;
+    line-height: normal;
+    padding: 1rem;
+    display: grid;
+}
+.vehicle-image-wrapper{
+  width:100%;
+  height: 10rem;
+  overflow: hidden;
+}
+.vehicle-image{
+  width:100%;
+  height: 100%;
+  display: inline-block;
+  background-size: cover;
+  place-content: center;
+  background-position: center;
+  transition: 1s;
+}
+.vehicle-image:hover{
+  transform: scale(1.05);
+}
+.vehicle-info{
+  width: 100%;
+  padding: 0.5rem;
+}
+.color-box{
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+.free-cancellation-wrapper{
+  color: green;
+}
+.rent-time-wrapper{
+  font-weight: 400;
+  font-style: italic;
+}
+.offer-include-wrapper > div{
+  flex-wrap: wrap;
+}
+.car-rental-wrapper{
+  flex-wrap: wrap;
+}
+.car-rental-wrapper > span:hover{
+  transition: .25s;
+  transform: scale(1.05);
+}

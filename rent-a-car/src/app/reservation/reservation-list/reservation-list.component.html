@@ -1,0 +1,55 @@
+<div fxLayout="column" class="reservation-list-container">
+  <mat-tab-group>
+    <mat-tab *ngIf="loggedUser && loggedUser.roles.includes('ROLE_USER')">
+      <ng-template mat-tab-label>
+        Your reservations
+      <mat-icon class="bg-primary">menu</mat-icon>
+      </ng-template>
+      <div fxLayout="column" fxLayoutGap="1rem" class="resevation-list" >
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="reservationsLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <span *ngIf="!userReservations && !reservationsLoading">You have no reservations yet.</span>
+        <app-reservation-item *ngFor="let reservation of userReservations" [reservation]="reservation" [userReservations]="true"></app-reservation-item>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="loggedUser && loggedUser.roles.includes('ROLE_ADMIN')">
+      <ng-template mat-tab-label>
+        Waiting
+        <mat-icon class="icon-waiting">refresh</mat-icon>
+      </ng-template>
+      <div fxLayout="column" fxLayoutGap="1rem" class="resevation-list" >
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="reservationsLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <app-reservation-item *ngFor="let reservation of waitingReservations" [reservation]="reservation" [userReservations]="false"></app-reservation-item>
+      </div>
+    </mat-tab>
+
+    <mat-tab *ngIf="loggedUser && loggedUser.roles.includes('ROLE_ADMIN')">
+      <ng-template mat-tab-label>
+        Accepted
+        <mat-icon class="icon-accepted">check</mat-icon>
+      </ng-template>
+      <div fxLayout="column" fxLayoutGap="1rem" class="resevation-list">
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="reservationsLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <app-reservation-item *ngFor="let reservation of acceptedReservations" [reservation]="reservation" [userReservations]="false"></app-reservation-item>
+      </div>
+    </mat-tab>
+
+    <mat-tab *ngIf="loggedUser && loggedUser.roles.includes('ROLE_ADMIN')">
+      <ng-template mat-tab-label>
+        Rejected
+        <mat-icon class="icon-rejected">close</mat-icon>
+      </ng-template>
+      <div fxLayout="column" fxLayoutGap="1rem" class="resevation-list">
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="reservationsLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <app-reservation-item *ngFor="let reservation of rejectedReservations" [reservation]="reservation" [userReservations]="false"></app-reservation-item>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,25 @@
+.footer-background{
+    padding: 2rem 5rem;
+    background-color: #292929;
+    color: #dddddd;
+}
+.second-row > div:nth-child(1){
+    width: 40%;
+}
+.society-network-wrapper{
+    width: fit-content;
+}
+.subscribe-wrapper {
+    width: 40%
+}
+.second-row > div > input{
+    width: 80%;
+    border-radius: 0.2rem;
+    border: none;
+}
+.society-network-wrapper > img {
+    width: 2rem;
+}
+.first-row-content > div{
+    margin-left: 1rem;
+}

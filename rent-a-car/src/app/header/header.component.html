@@ -1,0 +1,33 @@
+<div fxLayout="row" class="navigation-bar-container" fxLayoutAlign="space-between center">
+  <span class="app-name" routerLink="/">Renter</span>
+  <div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+  fxLayoutGap="2rem">
+    <span class="nav-item" routerLink="/home" routerLinkActive="active">Home</span>
+    <span class="nav-item" routerLink="/vehicle" routerLinkActive="active">
+      <span *ngIf=!spinner>Vehicles</span>
+      <app-button-spinner *ngIf=spinner></app-button-spinner>
+    </span>
+    <span
+    class="login nav-item"
+    [matMenuTriggerFor]="menu2"
+    routerLinkActive="active" *ngIf="!loggedUser">Sign</span>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item routerLink="/auth/sign-in" >Sign in</button>
+      <button mat-menu-item routerLink="/auth/sign-up" >Sign up</button>
+    </mat-menu>
+    <span
+    class="login nav-item"
+    [matMenuTriggerFor]="menu1"
+    routerLinkActive="active" *ngIf="loggedUser">Welcome, {{ loggedUser.firstName }}</span>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item routerLink="/vehicle/new" *ngIf=" ((loggedUser) && (loggedUser.roles.includes('ROLE_ADMIN')))">Add vehicle</button>
+      <button mat-menu-item routerLink="/reservation" >Reservations</button>
+      <button mat-menu-item routerLink="/company-register" *ngIf=" ((loggedUser) && (loggedUser.roles.length === 1 && loggedUser.roles[0] === 'ROLE_USER'))">Register company</button>
+      <button mat-menu-item (click)="logout()">Log out</button>
+    </mat-menu>
+  </div>
+</div>
+
+

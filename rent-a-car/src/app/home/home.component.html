@@ -1,0 +1,51 @@
+<div
+class="form-wrapper"
+fxLayout="column"
+fxLayoutAlign="space-between">
+  <form
+  action=""
+  [formGroup]="filterForm"
+  (ngSubmit)="onSubmit(filterForm)"
+  fxLayout=column>
+    <div
+    fxLayout=row>
+      <mat-form-field class="example-full-width">
+        <input type="text"
+              placeholder="Location"
+              aria-label="Number"
+              matInput
+              formControlName="location"
+              [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="this.filterForm.controls.location.invalid">Not valid city. Please choose one from list!</mat-error>
+      </mat-form-field>
+      <mat-form-field
+      fxFlexOffset=1rem
+      (click)="picker.open()">
+        <mat-label>Start date</mat-label>
+        <input matInput formControlName="start" autocomplete="off" [matDatepicker]="picker" [min]="todayDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="this.filterForm.controls.start.invalid">{{getStartDateErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field
+      fxFlexOffset=1rem
+      (click)="picker1.open()">
+        <mat-label>End date</mat-label>
+        <input matInput formControlName="end" autocomplete="off" [matDatepicker]="picker1" [min]="this.filterForm.controls.start.value" >
+        <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="this.filterForm.controls.end.invalid">{{getEndDateErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <button
+    mat-stroked-button>
+      <span>Filter</span>
+    </button>
+  </form>
+  
+</div>

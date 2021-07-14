@@ -1,0 +1,57 @@
+.reservation-item-container{
+  height: 4rem;
+  transition: 0.2s;
+}
+.reservation-item-container:hover{
+  height:4.5rem;
+}
+
+.reservation-id{
+  width:4rem;
+  height:100%;
+  border-radius: 50%;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  z-index:10;
+  color:white;
+}
+
+.reservation-info{
+  padding-right: 1rem;
+  height:100%;
+  width: 98%;
+  margin-left: -3rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background: linear-gradient(110deg, rgb(114, 148, 174) 32%, rgba(0, 0, 0, 0) 32%), linear-gradient(110deg,rgb(93, 140, 175) 60%,  rgb(114, 148, 174) 60%);
+}
+.reservation-info-header{
+  width:4rem;
+  height:100%;
+  border-radius: 50%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: white;
+}
+.ml-1{
+  margin-left: 1rem !important;
+}
+.reservation-info-section{
+  width: auto;
+}
+.mat-icon{
+  color:white;
+}
+.vehicle-info{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.button-detail{
+  line-height: normal;
+  padding: 0.5rem;
+  background-color: rgb(255, 211, 130)!important;
+}
+.button-detail:hover{
+  opacity: 0.8;
+  transition: 0.2s;
+}

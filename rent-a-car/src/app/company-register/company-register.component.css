@@ -1,0 +1,60 @@
+.company-form-wrapper{
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 2rem);
+    transform: translate(-50%,-50%);
+    background-color: white;
+}
+.company-register-title-wrapper{
+    width: calc(100% + 3rem);
+    padding: 0.5rem 0;
+    transform: translateX(-1.5rem);
+    margin-top: 1rem;
+    background: linear-gradient(120deg, rgb(114, 148, 174) 25%, rgb(93, 140, 175) 25%);
+}
+.company-form{
+    padding: 2rem;
+    width: 28rem;
+    margin-bottom: unset!important;
+}
+.register-wrapper > p{
+    margin-bottom: unset;
+    color: white;
+}
+.register-title{
+    color: white;
+}
+.register-title{
+    margin: 0;
+}
+.btn-signup,
+.footer-text-wrapper > span{
+    color: white;
+}
+.footer-text-wrapper{
+    background: linear-gradient(120deg, rgb(114, 148, 174) 25%, rgb(93, 140, 175) 25%);
+}
+.btn-register-company{
+    border-radius: unset;
+    width: fit-content;
+    padding: 0 2rem;
+    color: white;
+}
+.material-icons{
+    color: grey;
+}
+.first-last-name-wrapper > .mat-form-field{
+    width: 50%;
+}
+.click-here{
+    cursor: pointer;
+    border-bottom: rgb(255, 211, 130) 1px solid;
+}
+.image-wrapper{
+    flex-wrap: wrap;
+}
+.upload-image{
+    width: fit-content;
+    border: 1px solid rgb(114, 148, 174);
+    color: rgb(114, 148, 174);
+}

@@ -1,0 +1,40 @@
+
+<div fxLayout="row" class="reservation-item-container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="reservation-id" [ngStyle]="{'background-color':statusColor}">
+    <span class="text-size-16">{{reservation.id}}</span>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" class="reservation-info">
+    <div class="reservation-info-header"></div>
+    <mat-icon class="ml-1">person</mat-icon>
+    <div fxLayout="column" class="ml-1 reservation-info-section">
+      <span class="text-size-14">Name: {{reservation.user.firstName}}</span>
+      <span class="text-size-14">Surname: {{reservation.user.lastName}}</span>
+    </div>
+    <mat-icon class="ml-1"> directions_car</mat-icon>
+    <div class="ml-1 vehicle-info reservation-info-section" fxLayoutGap="0.3rem">
+      <span class="text-size-14">Firm name: {{reservation.vehicle.carRental.name}}</span>
+      <span class="text-size-14">Mark: {{ reservation.vehicle.mark }}</span>
+      <span class="text-size-14">Price: {{ fetchNewPrice() }}€</span>
+      <span class="text-size-14">Model: {{ reservation.vehicle.model }}</span>
+    </div>
+    <mat-icon class="ml-1">date_range</mat-icon>
+    <div fxLayout="column" class="ml-1 reservation-info-section">
+      <span class="text-size-14">Pickup date: {{getDate(reservation.startTime)}}</span>
+      <span class="text-size-14">Return date: {{getDate(reservation.endTime)}}</span>
+    </div>
+    <mat-icon class="ml-1">info</mat-icon>
+    <div class="ml-1 " fxLayoutGap="0.3rem">
+      <button mat-stroked-button class="button-detail" fxLayoutAlign="space-between">
+        <span class="text-size-14" (click)="navigateToDetailedReservation()">Detail</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!--
+
+  Komponenta koja opisuje pojedinacni item rezervacije sa osnovnim podacima (tipa
+  Korisnik, datum, vozilo, stanje rezervacije). Koristi se u listi rezervacija...
+
+ -->

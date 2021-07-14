@@ -1,0 +1,203 @@
+<div
+class="summary-background"
+fxLayout=column>
+    <div
+    class="car-infoAndImg-wrapper"
+    fxLayout=row>
+      <img
+      src="{{coverImage}}"
+      alt="">
+      <div
+      class="car-info-wrapper"
+      fxLayout=column
+      fxLayoutAlign="center ">
+        <div
+        fxLayout=row
+        fxLayoutAlign="space-between center">
+          <div
+          class="left-side-car-info">
+            <h2>Mark and model: <b>{{vehicle.mark}} {{vehicle.model}}</b></h2>
+            <h3>Model year: <b>{{modelYear}}</b></h3>
+            <h3>Manufacture year: <b>{{manufactureYear}}</b></h3>
+            <h3>Gearbox: <b>{{vehicle.gearbox}}</b></h3>
+            <h3>Type: <b>{{vehicle.type}}</b></h3>
+          </div>
+          <div
+          class="right-side-car-info"
+          fxLayout=column>
+            <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEX///+AgIB9fX16enqBgYH7+/uEhIT8/Pz29vbz8/O3t7eGhoavr6/y8vLv7+/c3NyNjY3j4+O9vb2enp6WlpbExMSoqKiRkZGamprp6enY2Njh4eHOzs6ioqLQ0NCysrKAlJDQAAALwElEQVR4nN1d6cKiIBT9ArfUXNPStN7/LSfTigtqsinO+TmjDWeAe+4m/P3tDK4dxfeiQ1PHkWfb7tYjUgk7SovWwSSC/HGvjv8HSzeq/TPG6ACBMD60TXrcenjSsOMstxh6H5ZJ2URbD1EKbhxe0AS9gaTTFjvmmIbJPL8XR+t633qggvCy5PCTXz+PZbX1YEUQnxfR6zkGjb31eHnhFdZygk+KyD9tPWQ+RA/Mwa8Dbne1UquSZwIHivmOKKYtN78nUJ5uPfClSPNJEj32TjFqRyl0btolL8syv3Qu6tgzqNyF+HtjexAdgrapPo52dH9crJG5RKG35dCXwR2zokF7Z4ae+mdWUHBmvi7emVGjpBx3y07ZleHoxCuPlxtVQo0ZWe19cl6qjHn8ang8xWxClGRzMmffad8O+6sNVgiNQxOsf2ys9EpRtIwW/ooaLgp+KxzzTrnCQEXhZhYc7GXJfHjUXgxq7QMVxu2C+Ak+bSr1WmusYtgZ3FGXpZaf+p9JjJ1EakcFzeJk4T0Ak/gwdBLdBtrEx3IPzPPh6r5pHKYEvJCcQnTmCRSgZqBC2yClAN0Zh2+UwAqbGmPcSZcbXfmihBT4NoGRy9QFDhtqOF8HOxEXJtoajzT5KOEN9OKE/P9pTfS/KzAJ3P6znYNlauJGhNuQP8zLSIbYxDAxIxjyL9KnY0NaU5xpGKEsSEMjEh+4pF+Dyo2Kp26Hib8j9xEWkWwyRYcuaxlTu87Css2fuJ6fuDxx7nHN27YM/axo+gDCBd6ziO9cgBTWSgyjFmM0h64k328Zm1xkjohixyRDvI4xTc8L6itjDPvQ3k3rOK2i48K2iwgwXCP97daLKoCoZ+iRpjB4rVzvEQTJOS/94h5Xx5/LzgVysUKM6N4vSwgeUC/uHhDs1wzYj0NfqjgEyfXJM/5RIiSzWJjX69NH8MOQ/LMhAUUEDB3NSz7vbpJ+m5A15kND52p5GA6Z6wLmFhFy/DmK5L+oX/KbxUVq9Hi9ACzNoBZNQD88GzWuyrBYXqQe/BeXHN8QO9UJ83A+owIrMrSLxfy6QfcvXVifJmW3cjLTO7MeQ4/aPz8Ynvu3SGkZVm7Eyo2VTYsjuaa1MvQKZvvMM+zjCOBWtv0v5QzDuRooUAuNttTLuAg+neR+az2A4/yaKbtkn57puACKr08PbU6Cz63VjxkYp6DPQvjMwzO5UOjT6Ot1y5hB/ULQi19NMhxKZIXFPj3pjh3X8dp83l6mp8b1C6oCjnM/wJo1Wdbk8oM/oCmfaGf8BJ/m8fVuBExhbygqdsWjyV6EdIXoyct4ZOKDsH8ZyEX/ZyfW9cOT5QywzLGWtpMjt5Hp2fT1PpARHkTSLVi5KKcijAZsZB0xPq9MfMZ87VfUWLKNLinO+W3wfQ0MRQk+BaCPle4jxvT5q8zTU4JIlq7QVT1DugbPgaFmG4O6xTul6z2ohZpMWUngFKnPJo42ay3EEBJVoPLw8bpOVIuNM6V00PFWzdAW0MEPhjk8XVlj2uEG/W804a2AAFO508bsFi6E/Z4B/VAo/2wkF4YquBifngpk9RXXLQRlYsDbDwPuwtsff439ChhOSH5NPoTUNkbJEfyaPdCWSJZxYQl7In4ia08oUerSCMtEj28kF4OkMLGTUlj9HGcI1nir8tsEW8xV+47ms6Aq0qRYRJAOqp8T/ZU2+TL2FTptrs//4QBA8PkpqAshsd18EB2PrkAwzypNqZRMvAbcEr8FFhoxVcDdCUatCMw8qjOlcjLRAT+IURIWBZ0JIik5udZo0YVMB6BEWV3mKLkHD7AngcyPvr3VF6pRh46EBxNZqkypnEwMDAmLUhEWBTCMwBtjTk0KDY0iv/voyxMEDMnONrBKwRyOJgrBNuRuN5qA5wtHE+RoyKYE0j8rCYMPExQjvTbQoitqMLXpsEaQYUL8ZvR1vgNyLcJem5FGDfAlEboq8dnsUFIm3rBIca6HEAgdwETBvsycdb1hz1eoYht6skL/HQ9YUnUedNXQBNgKD3aPnlkCIJ9jqcjon5TswX7AIfjlqMnC0IdfWcSwyZltmDqGqrfhyZfWwe+AaS/Mpc+8cKnkfsC41RXoa7zKu91KZOID61chLKWLbIye38Ffh2M/wgVP4Qwefps+m94RmH4eZqscaTV0Hyr5dZh3QWo68c2kKCLwhHRvqatKJj5Awdz/Ov1d04jbBpIDRLAiBk82XBqjeJm2fhH70Szttkl2iFM4skVLFRTPUxSrkNVd2m2LgFlAcpZUpUyAYV3G/+fTse+6KQWFco+uUgTVygQYdZCxBsJrmD34epZyTIGYyCUwFMsEhJUX0Fdx4zIY/zI/B8+l8GdkFqmtZQ9+B+6cs2/UGzXt1Hp5d+AMgG65zBek6mWCGTpCQe4XTZGVyWHqcCi6iRsUdKTS+Z5EdYkDr8ZoPH94UkAuZ9Cvgc7ii1SPTIiBDClPoG9K4kwFXTIhBFLyYJ50sny6YAZ1yYQICNcb5snFT/7QKhP8QF+TC1tQA9FeLyZ+2RjfnDCMm4Qzwe6Ib7gpvoVumN8QTdDY68gEBz7hA6jlCGcR1WXVlOHTqAHyM7/TIeM4GrYHO6A3lQZM4cJDJhiCRlnRHsMnGn82lAqhk2kMk4kBQ6P7ny2fnzFNJga8Q2Bb+vsDV03xRTk+DMl6YyDgzigrvqjGJwgkLM1UM9gcdGTV1ODD8OuVinikJoVLFFD7LmxUZXf0HkKWwFkfRsrEgC/Dv6hoEydpBU6ENpkgrJFGaZwK6ISaGr0uEK2ZopBu5dILBQxNlYkB0gzNlYkBsgwNDJcoSDI0MVyiIMfQaJkYQOghP8wMlyjIFCfoxg4zIcPQcJkYgB6/mYzDvKzaOMTyFX9dS7PpMjFA9FxET/zrs5WBxBrXvGy8pmwihJL3XubshSAWMqWu9GcFq2Hik5JfEPnMfBuIpbbdPREU6UWwOQ7M2RhzLXBzBHfgi/ZAyV3A6baL3cgE4jgB+wt38alc28MSIfh3380MCh4cVHPdjbUpxNzR+PfldKbAmfhMfR7pfpZokIl0AzFfMpgLMYLV+N1RJsIRIngKtx73cggRtHcT8Yo2VY4cpGUosFjmibk7ylyIfbgsc2TOunAEj4CI9jKDgS94z8F9J1PoCF+hupegV3QG98JQ5hiWXTDEpUShcBcMpT6s3wFDnjutRtAYz9B5yH0rmZrO0HlIfrFM3xpoGixZgqZvRBTK39h0ag2mKCUTH9zMXadICUH6XkSDYKm6fFr2tDxdcEJlpx56yk+4UAGFBLtOcPOsjaWSYPcVrWkUkVqC3RUSZlHEpfKjxiuj0t5Th5PKURw9e2IjqJIJiNv197+8DqxQ5dGxBGJDKCqVCYqiEXtRsUxAmOCiKpcJiuLmlVJcar7gNt6YItZ/qX287UJVFC7Nor5sx89SENEbTVGjTNAUt1moWmWCorjNXlyP4NPcbNAJrV0mIOrVKa4gExBri4aqrBoH1rWoK8nEdhRXkwma4loLdUWZoCiutRe3IriWG450RfRLUK9AEetIOi2HftHYQCYoiroTG3qyanwUdfLTllXjQa1xFjeTCYhYny6aQVCfuZm+SnR16NFF3G7gi05BxyyifHMrSkLDXlRfPpODatEQOZRLM9SKhoEEFXs3JhJUaW6QmQTViYZRMgGhhiLWcJO0MtwUiAZaO23IB3nRsNZN/PJDlqIh0cQc5ERjBwTlHDjNNXpVEK/1r1x8EYeoaKxefBGHmGhsnlXjgVCD2PZZNR7wN4gZkVXjQczZybgLmYC48eni/gjSd0rMA29RAJVHupiimi9fNsDSxmn8kDhIdVukiyyqpeqG8y2Q5j/5IbHTSIxB2v4iKHaejEH4dbTNzmewQzT7tQ0qdrwH35ijiIXOVTMOJ/am3mECZa/kNQbeY/SQIqTi9nZDMH4w71niKlDjYBdsxr8VvkbSSLh0ExwKxe6vMxhpS1xri6xil8HEPE5Fgt9ob/+FSjDw4iLrUFQmyfw/H8zEHivVXBsAAAAASUVORK5CYII="
+            alt="">
+            <h2>{{vehicle.price}} €/ day</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+    class="car-advantage-wrapper"
+    fxLayout=row
+    fxLayoutAlign="space-around ">
+      <div
+      class="advantage-item power"
+      fxLayout=column
+      fxLayoutAlign="center center">
+        <img src="https://img.icons8.com/ios/452/speed.png" alt="">
+        <h2>{{vehicle.power}} kW</h2>
+      </div>
+      <div
+      class="advantage-item color"
+      fxLayout=column
+      fxLayoutAlign="center center">
+        <div
+        [style.background-color]="vehicle.color">
+        </div>
+        <h2>{{vehicle.color}}</h2>
+      </div>
+      <div
+      class="advantage-item gear"
+      fxLayout=column
+      fxLayoutAlign="center center">
+        <img src="https://cdn0.iconfinder.com/data/icons/thin-transportation-1/24/thin-0505_car_manual_gearbox-512.png" alt="">
+        <h2>{{vehicle.gears}}</h2>
+      </div>
+    </div>
+
+    <div
+    class="reservation-detail-wrapper">
+      <div
+      fxLayout=row
+      class="start-date-wrapper">
+          <span
+          class="normal-bold"><b>Start date</b></span>
+          <span>{{startDate.getDate()}}.{{startDate.getMonth()+1}}.{{startDate.getFullYear()}}.</span>
+      </div>
+      <hr>
+      <div
+      fxLayout=row
+      class="end-date-wrapper">
+          <span
+          class="normal-bold"><b>end date</b></span>
+          <span>{{endDate.getDate()}}.{{endDate.getMonth()+1}}.{{endDate.getFullYear()}}</span>
+      </div>
+      <hr>
+      <div
+      fxLayout=row
+      class="for-wrapper">
+          <span
+          class="normal-bold"><b>For</b></span>
+          <span>{{numberOfDays}} days</span>
+      </div>
+      <hr>
+    <div
+    class="price-wrapper">
+        <div
+        class="car-wrapper"
+        fxLayout=row>
+            <span>{{vehicle.mark}} {{vehicle.model}}</span>
+            <span>€ {{vehicle.price}}</span>
+        </div>
+        <div
+        class="taxes-wrapper"
+        fxLayout=row>
+            <span>Taxes and charges</span>
+            <span>+ € 5</span>
+        </div>
+    </div>
+    <div
+    class="final-price-wrapper"
+    fxLayout=row>
+        <span
+        class="final-price">Final price</span>
+        <span
+        class="sum-price">€ {{vehicle.price * numberOfDays + 21}}</span>
+    </div>
+  </div>
+  <!-- <div
+    fxFlexOffset=2
+    class="estimate-arrival-time-container"
+    fxLayout=row>
+      <span
+      class="material-icons material-icons-outlined clock-icon">
+      query_builder</span>
+      <div
+      fxFlexOffset=1.5em
+      fxLayout=column>
+          <span
+          class="normal-bold"><b>Share your estimated arrival time</b></span>
+          <span>
+              We would like to know when you arrive. Don't worry - you can send us mail if your plan changed.
+          </span>
+          <mat-form-field>
+              <mat-select [value]="times[0]">
+                  <mat-option *ngFor="let time of times" [value]="times[0]">
+                  {{time}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+  </div> -->
+  <div
+  fxFlexOffset=2
+  class="payment-method-container"
+  fxLayout=row>
+    <span
+    class="material-icons material-icons-outlined clock-icon">
+    monetization_on</span>
+    <div
+    fxFlexOffset=1.5em
+    fxLayout=column>
+      <span
+      class="normal-bold"><b>Choose payment method</b></span>
+      <mat-form-field>
+        <mat-label>Payment method</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="Cash">Cash</mat-option>
+          <mat-option value="Credit card">Credit card</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div
+    fxLayout=row>
+      <div
+      class="user-info-wrapper"
+      fxLayout=column
+      fxLayoutAlign="center ">
+        <div
+        fxLayout=row
+        fxLayoutAlign="space-between center">
+          <div
+          class="left-side-user-info">
+            <h2>User informations: </h2>
+            <h3>FirstName and LastName: <b>{{loggedUser.firstName}} {{loggedUser.lastName}}</b></h3>
+            <h3>Email: <b>{{loggedUser.email}}</b></h3>
+            <h3>Birthday: <b>{{userBirthday.getDate()}}.{{userBirthday.getMonth()+1}}.{{userBirthday.getFullYear()}}.</b></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+    class="btn-reserve-now-wrapper"
+    fxLayoutAlign="end ">
+      <button
+      class="btn-reserve-now bg-primary"
+      mat-raised-button
+      (click)="sendReservation()">
+      RESERVE NOW</button>
+    </div>
+
+</div>
+<!--
+
+  Forma za iznajmljivanje:
+
+    Datum od kad,
+    datum do kad,
+    nacin placanja,
+    broj kartice (ukoliko je karticom),
+    mjesto preuzimanja...
+
+
+    ** Moguce dodati jos neke stvari... (prilagodit prema butku)
+
+ -->

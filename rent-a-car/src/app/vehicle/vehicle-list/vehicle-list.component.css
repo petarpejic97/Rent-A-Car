@@ -1,0 +1,14 @@
+.list-wrapper{
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vehicles-container{
+  width:60rem;
+  padding: 1rem 0;
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1em;
+  row-gap: 1em;
+}

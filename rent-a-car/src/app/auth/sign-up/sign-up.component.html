@@ -1,0 +1,129 @@
+<div
+class="sign-up-form-wrapper"
+fxLayout=column
+fxLayoutGap=1rem>
+  <div
+  class="register-title-wrapper"
+  fxFlex=4rem>
+    <div
+    class="register-wrapper bg-primary"
+    fxLayoutAlign=" center"
+    fxLayout=column>
+      <h2
+      fxFlexAlign=center
+      class="register-title">REGISTRATION</h2>
+      <p>
+        Enter your personal data
+      </p>
+    </div>
+  </div>
+  <form 
+  fxLayoutGap=1rem
+  action=""
+  class="registartion-form"
+  [formGroup]="signUpForm"
+  (ngSubmit)="onSubmit(signUpForm)"
+  fxLayout=column>
+      <div
+      class="user-info"
+      fxLayout=column>
+        <div
+        fxLayout=row
+        fxLayoutGap=4%
+        class="first-last-name-wrapper">
+          <mat-form-field
+          fxFlex=48>
+            <mat-label>First Name</mat-label>
+            <input matInput
+            formControlName="firstName">
+            <mat-icon matSuffix>person_outline</mat-icon>
+            <mat-error *ngIf="this.signUpForm.controls.firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field
+          fxFlex=48>
+            <mat-label>Last Name</mat-label>
+            <input matInput
+            formControlName="lastName">
+            <mat-icon matSuffix>person_outline</mat-icon>
+            <mat-error *ngIf="this.signUpForm.controls.lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>
+
+          </mat-form-field>
+        </div>
+        <mat-form-field (click)="picker1.open()">
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput 
+          formControlName="dateOfBirth"
+          [matDatepicker]="picker1" 
+          autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+          <mat-error *ngIf="this.signUpForm.controls.dateOfBirth.invalid">You must enter a value</mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput  
+          formControlName="email"
+          autocomplete="off">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="this.signUpForm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput
+          type="password"
+          formControlName="password">
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="this.signUpForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input matInput
+          type="password"
+          formControlName="confPassword">
+          <mat-icon matSuffix>lock</mat-icon>
+          <mat-error *ngIf="this.signUpForm.controls.confPassword.invalid">{{getConfPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      
+    <div
+    fxLayoutAlign=space-between>
+      
+      <button 
+      fxLayoutAlign=end
+      class="btn-signup bg-primary"
+      mat-raised-button>
+      Sign up</button>
+      <p 
+      class="alert" 
+      *ngIf="passwordNotMatch">Password don't match 
+                              <button class="btn-ok" (click)="hideMessage()">OK</button>
+        </p>
+    </div>
+  </form>
+  <div
+  class="footer-text-wrapper"
+  fxLayoutAlign="center center"
+  fxFlex=3rem>
+    <span>
+      HELLO FOR NEW USER!
+    </span>
+  </div>
+</div>
+
+  <!--
+
+  Forma s podacima za:
+    Ime
+    Prezime
+    Datum rođenja
+    Email
+    Lozinku
+    (prema dokumentu zahtjevi na softver)
+
+    Možda: dodati jos jedno za ponovit lozinku ?
+
+ -->
+

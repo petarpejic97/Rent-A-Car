@@ -1,0 +1,46 @@
+.background-wrapper{
+    max-width: 60rem;
+    background-color: white;
+    margin: auto;
+}
+.background-wrapper > img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+.text-info-wrapper{
+    padding: 1rem;
+}
+.material-icons{
+    font-size: 2rem!important;
+}
+.contact-wrapper{
+    padding: 2rem 0;
+}
+.contact-wrapper > div {
+    padding: 1.5rem 1rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+.contact-wrapper > div > span{
+    color: white;
+}
+.nasi-auti{
+    margin-top: 1rem;
+    text-align: center;
+}
+.list-wrapper{
+    min-height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 1rem 1rem 1rem;
+  }
+  .vehicles-container{
+    width:60rem;
+    padding: 1rem 0;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+  }

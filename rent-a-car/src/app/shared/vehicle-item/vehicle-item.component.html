@@ -1,0 +1,76 @@
+<button
+mat-raised-button
+class="vehicle-container"
+(click)="seeCarDetail()">
+  <div
+  fxLayout="column"
+  fxLayoutAlign="none center">
+    <div
+    class="vehicle-image-wrapper">
+      <img [src]="this.coverImage">
+    </div>
+    <div
+    fxLayout="column"
+    fxLayoutGap=0.5rem
+    class="vehicle-info">
+        <div fxLayout="row">
+          <span>{{vehicle.mark}} {{vehicle.model}} {{vehicle.type}}</span>
+        </div>
+        <div fxLayout="row">
+          <span>Gears: {{vehicle.gears}}</span>
+        </div>
+        <div fxLayout="row"
+        class="car-color-wrapper">
+          <div
+          class="color-box"
+          [style.background-color]="vehicle.color"></div>
+          <span
+          fxFlexOffset=0.5rem>{{vehicle.color}}</span>
+        </div>
+        <div fxLayout="column"
+        fxLayoutAlign=" start"
+        class="offer-include-wrapper">
+          <span>This offer include:</span>
+          <div
+          fxLayout=row>
+            <div
+            class="freekilometers"
+            fxLayoutAlign=" center">
+              <span class="material-icons done secondary">done</span> <span>Free unlimited kilometers</span>
+            </div>
+            <div
+            class="wintertire"
+            fxLayoutAlign=" center">
+              <span class="material-icons done secondary">done</span> <span>Winter tires include</span>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row"
+        class="car-rental-wrapper"
+        fxLayoutAlign=" center"
+        fxLayoutGap=0.5rem>
+          <span class="material-icons">
+            emoji_transportation
+          </span>
+          <span
+          (click)="seeRentalCar()">{{vehicle.carRental.name}}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end ">
+          <span>{{vehicle.price}} € per/day</span>
+        </div>
+        <div fxLayout="row"
+        class="free-cancellation-wrapper"
+        fxLayoutAlign="end ">
+          <span>Free cancellation</span>
+        </div>
+    </div>
+  </div>
+</button>
+
+
+<!--
+
+  Podaci o pojedinom vozilu(osnovni tipa marka i model vozila, cijena, mjenjac...)
+  Koristi se kod liste vozila...
+
+ -->

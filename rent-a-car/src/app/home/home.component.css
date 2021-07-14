@@ -1,0 +1,49 @@
+.form-wrapper{
+  width: fit-content;
+  background-color: white;
+  border-radius: .5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em;
+}
+.location{
+  border-radius: .2em;
+  border: 1px solid grey;
+  height: 3em;
+  margin-right: 1em;
+  min-width: 15em;
+}
+button{
+  height: 2.2rem;
+}
+input[type=text]:nth-child(3){
+  margin-right: 0em;
+}
+button:focus {outline:0;}
+.form-wrapper > button{
+  border-color: rgba(0, 0, 0, 0.5);
+  padding: 0.1rem;
+}
+::ng-deep button > span.mat-button-wrapper > app-button-spinner > div > div:nth-child(1),
+::ng-deep button > span.mat-button-wrapper > app-button-spinner > div > div:nth-child(2),
+::ng-deep button > span.mat-button-wrapper > app-button-spinner > div > div:nth-child(3),
+::ng-deep button > span.mat-button-wrapper > app-button-spinner > div > div:nth-child(4)
+{
+  top: unset!important;
+}
+@media only screen and (max-width: 350px) {
+  .form-wrapper > form{
+    flex-direction: column!important;
+    box-sizing: border-box;
+    display: flex;
+  }
+  input[type="text"]{
+    width:100%;
+    margin-bottom: 0.3rem;
+  }
+  .mat-form-field{
+    margin-left: 0!important;
+  }
+}

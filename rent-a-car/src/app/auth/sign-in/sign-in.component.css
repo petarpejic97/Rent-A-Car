@@ -1,0 +1,37 @@
+.form-wrapper{
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 18rem;
+    padding-top: 3rem!important;
+    padding: 2rem 1rem;
+}
+.btn-login{
+    color: white;
+    box-shadow: unset;
+    height: 2.5rem;
+}
+.user-icon{
+    position: absolute;
+    width: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -7rem;
+    border: 0.5rem solid rgb(255, 211, 130);
+    border-radius: 100%;
+}
+.login-title{
+    margin-top: 1rem;
+}
+mat-icon{
+    color: grey;
+}
+.forgotPassword{
+    color: grey;
+}
+.invalid-credentials{
+  color:red;
+  font-size:0.8rem;
+}

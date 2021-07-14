@@ -1,0 +1,24 @@
+.background {
+  background: url('https://static.vecteezy.com/system/resources/previews/001/630/637/non_2x/city-street-flat-background-vector.jpg') no-repeat center;
+  background-size: cover;
+  min-height: calc(100vh - 4rem);
+}
+.spinner{
+  position: absolute;
+  left: 50%;
+}
+.screen-center{
+  width : 100%;
+  height: calc(100vh - 60px);
+  position: absolute;
+}
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: none;
+}
